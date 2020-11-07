@@ -26,8 +26,17 @@ namespace TechReturners.Tasks
     public class Exercise005
     {
         public static List<string> Wave(string str)
-        {
-            throw new NotImplementedException();
+        {      
+        List<string> result = new List<string>();
+        for (int i = 0; i < str.Length; ++i)
+        {    
+            char[] chars = str.ToCharArray();
+            if(chars[i].ToString().Trim().Length > 0) {
+                chars[i] = char.ToUpper(chars[i]);
+                result.Add(new string(chars));
+            }
+        }
+        return result;
         }
     }
 }
