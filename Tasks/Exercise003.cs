@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 // Scenario
 // Several people are standing in a row divided into two teams. The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
@@ -29,7 +30,14 @@ namespace TechReturners.Tasks
     {
         public static int[] RowWeights(int[] a)
         {
-            throw new NotImplementedException();
+            var arrayEvenPosition = a
+                .Where((item, index) => index % 2 == 0)
+                .ToArray();
+            var arrayOddPosition = a
+                .Where((item, index) => index % 2 != 0)
+                .ToArray();
+            int[] result = {arrayEvenPosition.Sum(), arrayOddPosition.Sum()};
+            return result;
         }
     }
 }
